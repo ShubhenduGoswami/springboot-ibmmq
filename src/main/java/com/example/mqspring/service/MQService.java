@@ -18,10 +18,10 @@ public class MQService {
 
     public Optional<String> sendMessage(final Message message) {
         try {
-            jmsTemplate.convertAndSend(jmsTemplate., message.getText());
+            jmsTemplate.convertAndSend(jmsTemplate.getDefaultDestination(), message.getText());
         } catch (final JmsException e) {
             return Optional.empty();
-        } return Optional.of(message.getText());
+        }
+        return Optional.of(message.getText());
     }
-
 }
